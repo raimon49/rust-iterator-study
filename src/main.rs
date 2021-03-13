@@ -14,4 +14,9 @@ fn main() {
     for element in &v {
         println!("{}", element);
     }
+    // 上記のループは以下と同等
+    let mut iterator = (&v).into_iter();
+    while let Some(element) = iterator.next() {
+        println!("{}", element);
+    }
 }
