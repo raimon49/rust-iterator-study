@@ -33,5 +33,18 @@ fn main() {
         assert_eq!(iterator.next(), Some(&6));
         assert_eq!(iterator.next(), None);
         assert_eq!(iterator.next(), None); // 最後の要素Noneを返したあとでさらにnext()を呼んだ時に何を返すかをIteratorトレイトは規定していないが、多くの実装では再度Noneを返す
+
+        use std::ffi::OsStr;
+        use std::path::Path;
+
+        let path = Path::new("C:/Users/Jimb/Downloads/Fedra.iso");
+        let mut iterator = path.iter();
+        assert_eq!(iterator.next(), Some(OsStr::new("C:")));
+        assert_eq!(iterator.next(), Some(OsStr::new("Users")));
+        assert_eq!(iterator.next(), Some(OsStr::new("Jimb")));
+        assert_eq!(iterator.next(), Some(OsStr::new("Downloads")));
+        assert_eq!(iterator.next(), Some(OsStr::new("Fedra.iso")));
+        assert_eq!(iterator.next(), None);
+        assert_eq!(iterator.next(), None);
     }
 }
