@@ -22,10 +22,16 @@ fn main() {
             println!("{}", element);
         }
     }
-    // 上記のループは以下と同等
-    let mut iterator = (&v).into_iter();
-    while let Some(element) = iterator.next() {
-        // Some(element)が返されたらループボディ部を実行するがNoneが返されたら終了する
-        println!("{}", element);
+
+    {
+        let v = vec![4, 20, 12, 8, 6];
+        let mut iterator = v.iter();
+        assert_eq!(iterator.next(), Some(&4));
+        assert_eq!(iterator.next(), Some(&20));
+        assert_eq!(iterator.next(), Some(&12));
+        assert_eq!(iterator.next(), Some(&8));
+        assert_eq!(iterator.next(), Some(&6));
+        assert_eq!(iterator.next(), None);
+        assert_eq!(iterator.next(), None); // 最後の要素Noneを返したあとでさらにnext()を呼んだ時に何を返すかをIteratorトレイトは規定していないが、多くの実装では再度Noneを返す
     }
 }
