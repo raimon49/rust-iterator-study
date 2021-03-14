@@ -17,6 +17,7 @@ fn main() {
     // 上記のループは以下と同等
     let mut iterator = (&v).into_iter();
     while let Some(element) = iterator.next() {
+        // Some(element)が返されたらループボディ部を実行するがNoneが返されたら終了する
         println!("{}", element);
     }
 }
