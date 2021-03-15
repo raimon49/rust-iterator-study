@@ -47,4 +47,17 @@ fn main() {
         assert_eq!(iterator.next(), None);
         assert_eq!(iterator.next(), None);
     }
+
+    {
+        use std::collections::BTreeSet;
+        let mut favorites = BTreeSet::new();
+        favorites.insert("Lucy in the Sky With Diamonds".to_string());
+        favorites.insert("Libebestramue No. 3".to_string());
+
+        let mut it = favorites.into_iter();
+        assert_eq!(it.next(), Some("Libebestramue No. 3".to_string()));
+        assert_eq!(it.next(), Some("Lucy in the Sky With Diamonds".to_string()));
+        assert_eq!(it.next(), None);
+        assert_eq!(it.next(), None);
+    }
 }
