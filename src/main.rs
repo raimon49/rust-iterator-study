@@ -76,5 +76,9 @@ fn main() {
         assert_eq!(it.next(), Some("Lucy in the Sky With Diamonds".to_string()));
         assert_eq!(it.next(), None);
         assert_eq!(it.next(), None);
+
+        // ここで呼ぶと「value used here after move」でコンパイルエラーとなる
+        // これはfavorites.into_iter()の呼び出しが所有権ごと返すイテレータであるため
+        // dump(favorites);
     }
 }
