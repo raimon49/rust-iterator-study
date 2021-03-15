@@ -6,6 +6,18 @@ fn triangle(n: i32) -> i32 {
 
     sum
 }
+
+use std::fmt::Debug;
+fn dump<T, U>(t: T)
+    where T: IntoIterator<Item=U>,
+          U: Debug
+{
+    println!("Dump via 'dump' function:");
+    for u in t {
+        println!("{:?}", u);
+    }
+}
+
 fn main() {
     triangle(4);
 
