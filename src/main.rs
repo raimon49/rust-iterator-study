@@ -46,6 +46,8 @@ fn main() {
         assert_eq!(iterator.next(), None);
         assert_eq!(iterator.next(), None); // 最後の要素Noneを返したあとでさらにnext()を呼んだ時に何を返すかをIteratorトレイトは規定していないが、多くの実装では再度Noneを返す
 
+        dump(v);
+
         use std::ffi::OsStr;
         use std::path::Path;
 
@@ -58,6 +60,8 @@ fn main() {
         assert_eq!(iterator.next(), Some(OsStr::new("Fedra.iso")));
         assert_eq!(iterator.next(), None);
         assert_eq!(iterator.next(), None);
+
+        dump(path);
     }
 
     {
