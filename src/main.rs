@@ -49,6 +49,7 @@ fn main() {
     }
 
     {
+        // HashSetでなくイテレータの順序が保証されるBTreeSetを使う
         use std::collections::BTreeSet;
         let mut favorites = BTreeSet::new();
         favorites.insert("Lucy in the Sky With Diamonds".to_string());
