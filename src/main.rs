@@ -81,4 +81,14 @@ fn main() {
         // これはfavorites.into_iter()の呼び出しが所有権ごと返すイテレータであるため
         // dump(favorites);
     }
+
+    {
+        use std::iter::FromIterator;
+
+        let mut outer = "Earth".to_string();
+        let inner = String::from_iter(outer.drain(1..4));
+
+        assert_eq!(outer, "Eh");
+        assert_eq!(inner, "art");
+    }
 }
