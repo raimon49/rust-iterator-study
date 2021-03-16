@@ -85,6 +85,7 @@ fn main() {
     {
         use std::iter::FromIterator;
 
+        // 多くのコレクションはdrain()を実装しており、指定範囲の可変参照を借用したイテレータを返す
         let mut outer = "Earth".to_string();
         let inner = String::from_iter(outer.drain(1..4));
 
