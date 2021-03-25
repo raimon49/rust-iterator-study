@@ -100,5 +100,12 @@ fn main() {
             .map(str::trim)
             .collect();
         assert_eq!(v, ["ponies", "giraffers", "iguanas", "squid"]);
+
+        // さらにfilter()アダプタでiguanasだけ取り除く
+        let v2: Vec<&str> = text.lines()
+            .map(str::trim)
+            .filter(|s| *s != "iguanas")
+            .collect();
+        assert_eq!(v2, ["ponies", "giraffers", "squid"]);
     }
 }
