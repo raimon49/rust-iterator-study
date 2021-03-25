@@ -92,4 +92,13 @@ fn main() {
         assert_eq!(outer, "Eh");
         assert_eq!(inner, "art");
     }
+
+    {
+        // text.lines()で返された各行のイテレータをmap()アダプタで空白を除去する
+        let text = "  ponies  \n  giraffers\niguanas  \nsquid".to_string();
+        let v: Vec<&str> = text.lines()
+            .map(str::trim)
+            .collect();
+        assert_eq!(v, ["ponies", "giraffers", "iguanas", "squid"]);
+    }
 }
