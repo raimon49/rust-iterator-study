@@ -104,7 +104,7 @@ fn main() {
         // さらにfilter()アダプタでiguanasだけ取り除く
         let v2: Vec<&str> = text.lines()
             .map(str::trim)
-            .filter(|s| *s != "iguanas")
+            .filter(|s| *s != "iguanas") // trueを返すものだけをイテレータのアイテムとして生成する
             .collect();
         assert_eq!(v2, ["ponies", "giraffers", "squid"]);
     }
