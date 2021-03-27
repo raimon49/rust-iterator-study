@@ -108,4 +108,13 @@ fn main() {
             .collect();
         assert_eq!(v2, ["ponies", "giraffers", "squid"]);
     }
+
+    {
+        // iter()呼び出しだけでは値が要求されずnext()が呼ばれた時に初めて使われる
+        // このコードはコンパイル時に以下の警告を出す
+        // warning: unused `std::iter::Map` that must be used
+        // 最後に.next()をコールすると、printlnマクロが実行される
+        ["earth", "water", "air", "fire"]
+            .iter().map(|ert| println!("{}", ert));
+    }
 }
