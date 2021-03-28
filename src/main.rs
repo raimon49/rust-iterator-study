@@ -130,5 +130,13 @@ fn main() {
             .filter_map(|w| f64::from_str(w).ok()) {
                 println!("{:4.2}", number.sqrt());
             }
+
+        // 上のfilter_map()と同じ処理ををmap()->filter()->map()で書き直したもの
+        for number in text.split_whitespace()
+            .map(|w| f64::from_str(w))
+            .filter(|r| r.is_ok())
+            .map(|r| r.unwrap()) {
+                println!("{:4.2}", number.sqrt());
+            }
     }
 }
