@@ -122,6 +122,10 @@ fn main() {
         use std::str::FromStr;
 
         let text = "1\nfrond .25 289\n3.1415 estuary\n";
+        // 1) ホワイトスペースで区切られたスライスを
+        // 2) f64::from_str()でパースを試みる -> Result<f64, ParseFloatError>が返る
+        // 3) ok()を実行すると、エラーの場合はNoneとなりドロップされ処理は継続しない
+        // 4) パース成功したものはSome(v)のvを取り出す
         for number in text.split_whitespace()
             .filter_map(|w| f64::from_str(w).ok()) {
                 println!("{:4.2}", number.sqrt());
