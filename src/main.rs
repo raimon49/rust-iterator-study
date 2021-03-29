@@ -139,4 +139,22 @@ fn main() {
                 println!("{:4.2}", number.sqrt());
             }
     }
+
+    {
+        use std::collections::HashMap;
+
+        let mut major_cities = HashMap::new();
+        major_cities.insert("Japan", vec!["Tokyo", "Kyoto"]);
+        major_cities.insert("The United States", vec!["Portland", "Nashville"]);
+        major_cities.insert("Brazil", vec!["Sao Paulo", "Brasilia"]);
+        major_cities.insert("Kenya", vec!["Nairobi", "Mombasa"]);
+        major_cities.insert("The Netherlands", vec!["Amsterdam", "Utrecht"]);
+
+        let countries = ["Japan", "Brazil", "Kenya"];
+
+        for &city in countries.iter().flat_map(|country| &major_cities[country]) {
+            println!("{}", city);
+        }
+
+    }
 }
