@@ -173,4 +173,16 @@ fn main() {
 
         assert_eq!(iter.collect::<Vec<i32>>(), vec![0, 1, 4, 9, 16]);
     }
+
+    {
+        let message = "To: jimb\r\n
+                       From: superego <editor@oreilly.com>\r\n
+                       \r\n
+                       Did you get any writing done today?\r\n
+                       When will you stop wasting time plotting fractals?\r\n";
+        // take_while()は引数predicateがtrueになったらNoneを生成してイテレートを中止する
+        for header in message.lines().take_while(|l| !l.is_empty()) {
+            println!("{}", header);
+        }
+    }
 }
