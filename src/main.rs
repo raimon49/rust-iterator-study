@@ -180,9 +180,16 @@ fn main() {
                        \r\n
                        Did you get any writing done today?\r\n
                        When will you stop wasting time plotting fractals?\r\n";
+        println!("message header:");
         // take_while()は引数predicateがtrueになったらNoneを生成してイテレートを中止する
         for header in message.lines().take_while(|l| !l.is_empty()) {
             println!("{}", header);
+        }
+
+        println!("message body:");
+        // skip_while()は引数predicateがtrueのアイテムだけをスキップして繰り返す
+        for body in message.lines().skip_while(|l| !l.is_empty()) {
+            println!("{}", body);
         }
     }
 }
