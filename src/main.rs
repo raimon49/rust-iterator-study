@@ -214,6 +214,13 @@ fn main() {
         }
 
         let mut chars = "226153980,1766319049".chars().peekable();
+
         assert_eq!(parse_number(&mut chars), 226153980);
+
+        assert_eq!(chars.next(), Some(','));
+
+        assert_eq!(parse_number(&mut chars), 1766319049);
+
+        assert_eq!(chars.next(), None);
     }
 }
