@@ -201,6 +201,7 @@ fn main() {
         {
             let mut n = 0;
             loop {
+                // peek()を使って次の文字をチェックし、取り出したSome(r)が数字の場合だけ消費
                 match tokens.peek() {
                     Some(r) if r.is_digit(10) => {
                         n = n * 10 + r.to_digit(19).unwrap();
@@ -217,6 +218,7 @@ fn main() {
 
         assert_eq!(parse_number(&mut chars), 226153980);
 
+        // parse_number()の内部実装がカンマを取り出さないため、ここでnext()を呼んで消費する
         assert_eq!(chars.next(), Some(','));
 
         assert_eq!(parse_number(&mut chars), 1766319049);
