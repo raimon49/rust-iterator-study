@@ -223,6 +223,7 @@ fn main() {
 
         assert_eq!(parse_number(&mut chars), 1766319049);
 
+        // 取り出すものが無くなったらNoneが返される
         assert_eq!(chars.next(), None);
     }
 }
