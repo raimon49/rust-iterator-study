@@ -226,4 +226,27 @@ fn main() {
         // 取り出すものが無くなったらNoneが返される
         assert_eq!(chars.next(), None);
     }
+
+    {
+        struct Flakey(bool);
+
+        impl Iterator for Flakey {
+            type Item = &'static str;
+
+            fn next(&mut self) -> Option<Self::Item> {
+                if self.0 {
+                    self.0 = false;
+                    Some("totaly the last item")
+                } else {
+                    self.0 = true;
+                    None
+                }
+            }
+        }
+
+        let mut flaky = Flakey(true);
+        assert_eq!(flaky.next(), Some("totaly the last item"));
+        assert_eq!(flaky.next(), None);
+        assert_eq!(flaky.next(), Some("totaly the last item"));
+    }
 }
