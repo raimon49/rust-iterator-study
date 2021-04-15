@@ -230,6 +230,7 @@ fn main() {
     {
         struct Flakey(bool);
 
+        // next()が呼ばれて最後の要素に到達しても常にNoneを返さないイテレータ実装
         impl Iterator for Flakey {
             type Item = &'static str;
 
@@ -248,5 +249,12 @@ fn main() {
         assert_eq!(flaky.next(), Some("totaly the last item"));
         assert_eq!(flaky.next(), None);
         assert_eq!(flaky.next(), Some("totaly the last item"));
+
+        // fuseアダプタにより、最後の要素に到達したら常にNoneを返すイテレータに変換可能
+        let mut not_flaky = Flakey(true).fuse();
+        assert_eq!(flaky.next(), Some("totaly the last item"));
+        assert_eq!(flaky.next(), None);
+        assert_eq!(flaky.next(), None);
+        assert_eq!(flaky.next(), None);
     }
 }
