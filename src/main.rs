@@ -245,6 +245,7 @@ fn main() {
             }
         }
 
+        // next()を呼んでNoneになっても再び要素が返される
         let mut flaky = Flakey(true);
         assert_eq!(flaky.next(), Some("totaly the last item"));
         assert_eq!(flaky.next(), None);
