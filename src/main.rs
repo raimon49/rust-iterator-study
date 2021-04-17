@@ -272,5 +272,14 @@ fn main() {
         // 2本の指が一致したところで繰り返し実行は終了する
         assert_eq!(iter.next_back(), None);
         assert_eq!(iter.next(),      None);
+
+        let meals = ["breakfast", "lunch", "dinner"];
+
+        // rev()でnext/next_backが反転したイテレータを取得できる
+        let mut rev_iter = meals.iter().rev();
+        assert_eq!(rev_iter.next(), Some(&"dinner"));
+        assert_eq!(rev_iter.next(), Some(&"lunch"));
+        assert_eq!(rev_iter.next(), Some(&"breakfast"));
+        assert_eq!(rev_iter.next(), None);
     }
 }
