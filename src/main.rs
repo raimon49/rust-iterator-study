@@ -253,10 +253,10 @@ fn main() {
 
         // fuseアダプタにより、最後の要素に到達したら常にNoneを返すイテレータに変換可能
         let mut not_flaky = Flakey(true).fuse();
-        assert_eq!(flaky.next(), Some("totaly the last item"));
-        assert_eq!(flaky.next(), None);
-        assert_eq!(flaky.next(), None);
-        assert_eq!(flaky.next(), None);
+        assert_eq!(not_flaky.next(), Some("totaly the last item"));
+        assert_eq!(not_flaky.next(), None);
+        assert_eq!(not_flaky.next(), None);
+        assert_eq!(not_flaky.next(), None);
     }
 
     {
