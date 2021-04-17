@@ -258,4 +258,19 @@ fn main() {
         assert_eq!(flaky.next(), None);
         assert_eq!(flaky.next(), None);
     }
+
+    {
+        use std::iter::DoubleEndedIterator;
+
+        let bee_parts = ["head", "thorax", "abdomen"];
+
+        // DoubleEndedIteratorを実装している型は前端と後端のアイテムを引き出せる
+        let mut iter = bee_parts.iter();
+        assert_eq!(iter.next(),      Some(&"head"));
+        assert_eq!(iter.next_back(), Some(&"abdomen"));
+        assert_eq!(iter.next(),      Some(&"thorax"));
+        // 2本の指が一致したところで繰り返し実行は終了する
+        assert_eq!(iter.next_back(), None);
+        assert_eq!(iter.next(),      None);
+    }
 }
