@@ -289,5 +289,6 @@ fn main() {
             .flat_map(|c| c.to_uppercase())
             .inspect(|c| println!(" after: {:?}", c))
             .collect();
+        assert_eq!(upper_case, "GROΒE");
     }
 }
