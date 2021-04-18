@@ -282,4 +282,12 @@ fn main() {
         assert_eq!(rev_iter.next(), Some(&"breakfast"));
         assert_eq!(rev_iter.next(), None);
     }
+
+    {
+        let upper_case: String = "groβe".chars()
+            .inspect(|c| println!("before: {:?}", c))
+            .flat_map(|c| c.to_uppercase())
+            .inspect(|c| println!(" after: {:?}", c))
+            .collect();
+    }
 }
