@@ -287,7 +287,7 @@ fn main() {
         let upper_case: String = "groβe".chars()
             .inspect(|c| println!("before: {:?}", c))
             .flat_map(|c| c.to_uppercase())
-            .inspect(|c| println!(" after: {:?}", c))
+            .inspect(|c| println!(" after: {:?}", c)) // アイテムをそのまま通過させるため、デバッグ出力などに使われる
             .collect();
         assert_eq!(upper_case, "GROΒE");
     }
