@@ -301,4 +301,13 @@ fn main() {
         let rev_v: Vec<i32> = (1..4).chain(vec![20, 30, 40]).rev().collect();
         assert_eq!(rev_v, [40, 30, 20, 3, 2, 1]);
     }
+
+    {
+        let bands = vec![10, 20, 30, 40];
+        for (i, band) in bands.into_iter().enumerate() {
+            // enumerate()は(0, 10), (1, 20), (2, 30), (3, 40)と
+            // インデックスとアイテムのペアになったイテレータを生成する
+            println!("{}", (i * band)); // 0, 20, 60, 120
+        }
+    }
 }
