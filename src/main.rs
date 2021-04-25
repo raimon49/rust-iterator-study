@@ -319,6 +319,7 @@ fn main() {
         let v: Vec<_> = (0..).zip("ABCD".chars()).collect();
         assert_eq!(v, vec![(0, 'A'), (1, 'B'), (2, 'C'), (3, 'D')]);
 
+        // zip()の引数はイテレータそのものでなくイテレート可能なものなら何でもよい
         use std::iter::repeat;
         let endings = vec!["once", "twice", "chikien soup with rice"];
         let rhyme: Vec<_> = repeat("going")
