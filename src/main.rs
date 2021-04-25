@@ -318,5 +318,14 @@ fn main() {
         // ここでは"ABCD".chars()が終了した時点で(0..)も繰り返しを終了している
         let v: Vec<_> = (0..).zip("ABCD".chars()).collect();
         assert_eq!(v, vec![(0, 'A'), (1, 'B'), (2, 'C'), (3, 'D')]);
+
+        use std::iter::repeat;
+        let endings = vec!["once", "twice", "chikien soup with rice"];
+        let rhyme: Vec<_> = repeat("going")
+            .zip(endings)
+            .collect();
+        assert_eq!(rhyme, vec![("going", "once"),
+                               ("going", "twice"),
+                               ("going", "chikien soup with rice")]);
     }
 }
