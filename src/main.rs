@@ -191,6 +191,16 @@ fn main() {
         for body in message.lines().skip_while(|l| !l.is_empty()) {
             println!("{}", body);
         }
+
+        let mut lines = message.lines();
+        // by_ref()呼び出しをするとイテレータの可変参照を借用する
+        for header in lines.by_ref().take_while(|l| !l.is_empty()) {
+            println!("{}", header);
+        }
+        // 上のループでは参照を返しているだけなので、もう一度ループで利用できる
+        for body in lines {
+            println!("{}", body);
+        }
     }
 
     {
