@@ -238,6 +238,7 @@ fn main() {
     }
 
     {
+        // 型を定義
         struct Flakey(bool);
 
         // next()が呼ばれて最後の要素に到達しても常にNoneを返さないイテレータ実装
