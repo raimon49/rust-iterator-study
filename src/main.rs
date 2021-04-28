@@ -340,4 +340,10 @@ fn main() {
                                ("going", "twice"),
                                ("going", "chikien soup with rice")]);
     }
+
+    {
+        let a = ['1', '2', '3', '∞'];
+
+        assert_eq!(a.iter().next(), Some(&'1'));
+    }
 }
