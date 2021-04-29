@@ -348,4 +348,15 @@ fn main() {
         assert_eq!(a.iter().next(),          Some(&'1'));
         assert_eq!(a.iter().cloned().next(), Some('1'));
     }
+
+    {
+        let dirs = ["North", "East", "South", "West"];
+        let mut spin = dirs.iter().cycle();
+        assert_eq!(spin.next(), Some(&"North"));
+        assert_eq!(spin.next(), Some(&"East"));
+        assert_eq!(spin.next(), Some(&"South"));
+        assert_eq!(spin.next(), Some(&"West"));
+        assert_eq!(spin.next(), Some(&"North"));
+        assert_eq!(spin.next(), Some(&"East"));
+    }
 }
