@@ -351,6 +351,9 @@ fn main() {
 
     {
         let dirs = ["North", "East", "South", "West"];
+
+        // cycleアダプタは、元となるイテレータが生成するアイテムを無限に繰り返すイテレータを返す
+        // 呼ばれるイテレータのアイテムはCloneを実装する型でなければならない
         let mut spin = dirs.iter().cycle();
         assert_eq!(spin.next(), Some(&"North"));
         assert_eq!(spin.next(), Some(&"East"));
