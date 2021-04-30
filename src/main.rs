@@ -361,5 +361,19 @@ fn main() {
         assert_eq!(spin.next(), Some(&"West"));
         assert_eq!(spin.next(), Some(&"North"));
         assert_eq!(spin.next(), Some(&"East"));
+
+        use std::iter::{once, repeat};
+        let fizzes = repeat("").take(2).chain(once("fizz")).cycle();
+        let buzzes = repeat("").take(4).chain(once("buzz")).cycle();
+        let fizzes_bazzes = fizzes.zip(buzzes);
+        let fizz_buzz = (1..100).zip(fizzes_bazzes)
+            .map(|tuple|
+                match tuple {
+                    (i, ("", "")) => i.to_string(),
+                    (_, (fizz, buzz)) => format!("{}{}", fizz, buzz)
+                });
+        for line in fizz_buzz {
+            println!("{}", line);
+        }
     }
 }
