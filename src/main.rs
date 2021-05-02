@@ -376,4 +376,16 @@ fn main() {
             println!("{}", line);
         }
     }
+
+    {
+        fn triangle(n: u64) -> u64 {
+            (1..n+1).sum()
+        }
+        assert_eq!(triangle(20), 210);
+
+        fn factorial(n: u64) -> u64 {
+            (1..n+1).product()
+        }
+        assert_eq!(factorial(20), 2432902008176640000);
+    }
 }
