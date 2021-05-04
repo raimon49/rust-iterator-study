@@ -379,11 +379,13 @@ fn main() {
 
     {
         fn triangle(n: u64) -> u64 {
+            // イテレータから取り出したアイテムの和を求める
             (1..n+1).sum()
         }
         assert_eq!(triangle(20), 210);
 
         fn factorial(n: u64) -> u64 {
+            // イテレータから取り出したアイテムの積を求める
             (1..n+1).product()
         }
         assert_eq!(factorial(20), 2432902008176640000);
