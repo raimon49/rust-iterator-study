@@ -397,4 +397,15 @@ fn main() {
         // イテレータが生成するアイテムの最小を返す
         assert_eq!([-2, 0, 1, 0, -2, -5].iter().min(), Some(&-5));
     }
+
+    {
+        use std::cmp::{PartialOrd, Ordering};
+
+        fn cmp(lhs: &&f64, rhs: &&f64) -> Ordering {
+            lhs.partial_cmp(rhs).unwrap()
+        }
+
+        let numbers = [1.0, 4.0, 2.0];
+        assert_eq!(numbers.iter().max_by(cmp), Some(&4.0));
+    }
 }
