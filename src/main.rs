@@ -407,5 +407,6 @@ fn main() {
 
         let numbers = [1.0, 4.0, 2.0];
         assert_eq!(numbers.iter().max_by(cmp), Some(&4.0));
+        assert_eq!(numbers.iter().min_by(cmp), Some(&1.0));
     }
 }
