@@ -401,10 +401,13 @@ fn main() {
     {
         use std::cmp::{PartialOrd, Ordering};
 
+        // max_by()/min_by()に渡す比較用関数
+        // NaNが与えられるとpanicが起きるコードになっている
         fn cmp(lhs: &&f64, rhs: &&f64) -> Ordering {
             lhs.partial_cmp(rhs).unwrap()
         }
 
+        // 変数numbersの中にstd::f64::NANが含まれていると実行時にpanicが起きる
         let numbers = [1.0, 4.0, 2.0];
         assert_eq!(numbers.iter().max_by(cmp), Some(&4.0));
         assert_eq!(numbers.iter().min_by(cmp), Some(&1.0));
