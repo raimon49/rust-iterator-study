@@ -423,6 +423,9 @@ fn main() {
         populations.insert("Bording",     7_762);
         populations.insert("The Dalles", 15_340);
 
+        // max_by_key()/min_by_key()では各アイテムに引数クロージャを適用した結果のうち
+        // 最大/最小のものを返す
+        // ここでは単にクロージャの仮引数popが最大/最小のものが選ばれる
         assert_eq!(populations.iter().max_by_key(|&(_name, pop)|pop),
                    Some((&"Portland", &583_776)));
         assert_eq!(populations.iter().min_by_key(|&(_name, pop)|pop),
