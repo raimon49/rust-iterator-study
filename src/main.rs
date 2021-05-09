@@ -438,6 +438,11 @@ fn main() {
         let obscure = "Helen of Sandusky";
 
         assert!(packed != spaced);
+        // 空白区切りの単語イテレータ同士で比較すると真になる
         assert!(packed.split_whitespace().eq(spaced.split_whitespace()));
+
+        assert!(spaced < obscure);
+        // 'Troy' > 'Sandusky' の比較結果となるため真になる
+        assert!(spaced.split_whitespace().gt(obscure.split_whitespace()));
     }
 }
