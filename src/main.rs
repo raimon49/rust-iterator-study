@@ -449,7 +449,9 @@ fn main() {
     {
         let id = "Iterator";
 
+        // chars()で取り出したアイテムのどれかがis_uppercase()にtrueを返したら繰り返しを中止
         assert!( id.chars().any(char::is_uppercase));
+        // chars()で取り出したアイテムのすべてがis_uppercase()にtrueを返す時だけtrueとなる
         assert!(!id.chars().all(char::is_uppercase));
     }
 }
