@@ -445,4 +445,11 @@ fn main() {
         // 'Troy' > 'Sandusky' の比較結果となるため真になる
         assert!(spaced.split_whitespace().gt(obscure.split_whitespace()));
     }
+
+    {
+        let id = "Iterator";
+
+        assert!( id.chars().any(char::is_uppercase));
+        assert!(!id.chars().all(char::is_uppercase));
+    }
 }
