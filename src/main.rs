@@ -454,4 +454,10 @@ fn main() {
         // chars()で取り出したアイテムのすべてがis_uppercase()にtrueを返す時だけtrueとなる
         assert!(!id.chars().all(char::is_uppercase));
     }
+
+    {
+        let text = "Xerxes";
+        assert_eq!(text.chars().position(|c| c == 'e'), Some(1));
+        assert_eq!(text.chars().position(|c| c == 'z'), None);
+    }
 }
