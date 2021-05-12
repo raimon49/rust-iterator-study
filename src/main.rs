@@ -460,6 +460,8 @@ fn main() {
         assert_eq!(text.chars().position(|c| c == 'e'), Some(1));
         assert_eq!(text.chars().position(|c| c == 'z'), None);
 
+        // rposition()はサイズが決定しているイテレータでなければ使えない
+        // &strに対するchar()イテレータは事前にサイズが決定しないためバイト配列のように配列長がわかるもので使う
         let bytes = b"Xerxes";
         assert_eq!(bytes.iter().rposition(|&c| c == b'e'), Some(4));
         assert_eq!(bytes.iter().rposition(|&c| c == b'X'), Some(0));
