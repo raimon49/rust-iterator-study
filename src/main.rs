@@ -466,4 +466,10 @@ fn main() {
         assert_eq!(bytes.iter().rposition(|&c| c == b'e'), Some(4));
         assert_eq!(bytes.iter().rposition(|&c| c == b'X'), Some(0));
     }
+
+    {
+        let a = [5, 6, 7, 8, 9, 10];
+
+        assert_eq!(a.iter().fold(0, |n, _| n+1), 6);
+    }
 }
