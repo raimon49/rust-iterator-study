@@ -470,8 +470,8 @@ fn main() {
     {
         let a = [5, 6, 7, 8, 9, 10];
 
-        assert_eq!(a.iter().fold(0, |n, _| n+1), 6);
-        assert_eq!(a.iter().fold(0, |n, i| n+i), 45);
-        assert_eq!(a.iter().fold(1, |n, i| n*i), 151200);
+        assert_eq!(a.iter().fold(0, |n, _| n+1), 6);      // like count()
+        assert_eq!(a.iter().fold(0, |n, i| n+i), 45);     // like sum()
+        assert_eq!(a.iter().fold(1, |n, i| n*i), 151200); // like product()
     }
 }
