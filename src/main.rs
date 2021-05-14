@@ -473,5 +473,9 @@ fn main() {
         assert_eq!(a.iter().fold(0, |n, _| n+1), 6);      // like count()
         assert_eq!(a.iter().fold(0, |n, i| n+i), 45);     // like sum()
         assert_eq!(a.iter().fold(1, |n, i| n*i), 151200); // like product()
+
+        // like max()
+        assert_eq!(a.iter().fold(i32::min_value(), |m, &i| std::cmp::max(m, i)),
+                  10);
     }
 }
