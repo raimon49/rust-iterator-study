@@ -468,6 +468,8 @@ fn main() {
     }
 
     {
+        // foldメソッドのシグネチャは以下で、値の初期値（init）とクロージャ（f）を引数に渡す
+        // fn fold<A, F>(self, init: A, f: F) -> A
         let a = [5, 6, 7, 8, 9, 10];
 
         assert_eq!(a.iter().fold(0, |n, _| n+1), 6);      // like count()
