@@ -477,5 +477,11 @@ fn main() {
         // like max()
         assert_eq!(a.iter().fold(i32::min_value(), |m, &i| std::cmp::max(m, i)),
                   10);
+
+        let a = ["Pack ", "my ", "box ", "with ",
+                 "five ", "dozen ", "liquor ", "jugs"];
+        let pangram = a.iter().fold(String::new(),
+                                   |mut s, &w| { s.push_str(w); s});
+        assert_eq!(pangram, "Pack my box with five dozen liquor jugs");
     }
 }
