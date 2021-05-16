@@ -490,6 +490,9 @@ fn main() {
     {
         let mut squares = (0..10).map(|i| i*i);
 
+        // nth()はインデックスnを引数とし、その数だけイテレータからのアイテムをスキップし、その次のアイテムを返す
+        // もうアイテムが無ければNoneを返す
+        // アダプタと違ってイテレータの所有権を受け取らないので、何度でも呼び出し可能
         assert_eq!(squares.nth(4), Some(16));
         assert_eq!(squares.nth(0), Some(25));
         assert_eq!(squares.nth(6), None);
