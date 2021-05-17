@@ -499,6 +499,8 @@ fn main() {
     }
 
     {
+        // last()メソッドは対象のアイテムを先頭から最後まで消費する
+        // 消費する必要が無くて最後の要素を取り出したいならiter().rev().next()と書いた方がよい
         let squares = (0..10).map(|i| i*i);
         assert_eq!(squares.last(), Some(81));
     }
