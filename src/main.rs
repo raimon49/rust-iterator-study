@@ -504,4 +504,17 @@ fn main() {
         let squares = (0..10).map(|i| i*i);
         assert_eq!(squares.last(), Some(81));
     }
+
+    {
+        use std::collections::HashMap;
+
+        let mut populations = HashMap::new();
+        populations.insert("Portland",  583_776);
+        populations.insert("Fossil",        449);
+        populations.insert("Greenhorn",       2);
+        populations.insert("Bording",     7_762);
+        populations.insert("The Dalles", 15_340);
+
+        assert_eq!(populations.iter().find(|&(_name, &pop)| pop > 1_000_999), None);
+    }
 }
