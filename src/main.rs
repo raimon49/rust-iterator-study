@@ -515,6 +515,7 @@ fn main() {
         populations.insert("Bording",     7_762);
         populations.insert("The Dalles", 15_340);
 
+        // find()はイテレータからアイテムを引き出し、引数のクロージャが最初にtrueとなったアイテムを返す
         assert_eq!(populations.iter().find(|&(_name, &pop)| pop > 1_000_999), None);
         assert_eq!(populations.iter().find(|&(_name, &pop)| pop > 500_999), Some((&"Portland", &583_776)));
     }
