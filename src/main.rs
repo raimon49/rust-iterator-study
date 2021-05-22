@@ -519,4 +519,10 @@ fn main() {
         assert_eq!(populations.iter().find(|&(_name, &pop)| pop > 1_000_999), None);
         assert_eq!(populations.iter().find(|&(_name, &pop)| pop > 500_999), Some((&"Portland", &583_776)));
     }
+
+    {
+        let mut v: Vec<i32> = (0..5).map(|i| 1 << i).collect();
+        v.extend(&[31, 57, 99, 163]);
+        assert_eq!(v, &[1, 2, 4, 8, 16, 31, 57, 99, 163]);
+    }
 }
