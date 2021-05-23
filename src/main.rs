@@ -522,7 +522,7 @@ fn main() {
 
     {
         // 標準のコレクション（Stringを含む）は全てstd::iter::Extendを実装しているので拡張できる
-        // 配列やスライスは固定長なのでExtendを実装していない
+        // 配列やスライスは固定長なのでstd::iter::Extendを実装していない
         let mut v: Vec<i32> = (0..5).map(|i| 1 << i).collect();
         v.extend(&[31, 57, 99, 163]);
         assert_eq!(v, &[1, 2, 4, 8, 16, 31, 57, 99, 163]);
