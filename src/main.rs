@@ -527,4 +527,11 @@ fn main() {
         v.extend(&[31, 57, 99, 163]);
         assert_eq!(v, &[1, 2, 4, 8, 16, 31, 57, 99, 163]);
     }
+    {
+        let things = ["doorknob", "mushroom", "noodle", "giraffe", "grapefruit"];
+
+        let (living, nonliving): (Vec<&str>, Vec<&str>) = things.iter().partition(|name| name.as_bytes()[0] & 1 != 0);
+
+        assert_eq!(living, vec!["mushroom", "giraffe", "grapefruit"]);
+    }
 }
