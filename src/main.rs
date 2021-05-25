@@ -532,7 +532,7 @@ fn main() {
 
         let (living, nonliving): (Vec<&str>, Vec<&str>) = things.iter().partition(|name| name.as_bytes()[0] & 1 != 0);
 
-        assert_eq!(living, vec!["mushroom", "giraffe", "grapefruit"]);
+        assert_eq!(living,    vec!["mushroom", "giraffe", "grapefruit"]);
         assert_eq!(nonliving, vec!["doorknob", "noodle"]);
     }
 }
