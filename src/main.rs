@@ -530,6 +530,8 @@ fn main() {
     {
         let things = ["doorknob", "mushroom", "noodle", "giraffe", "grapefruit"];
 
+        // partition()は引数のクロージャでコレクションを分割する
+        // 分割されるコレクションは同じ型でなければならない
         let (living, nonliving): (Vec<&str>, Vec<&str>) = things.iter().partition(|name| name.as_bytes()[0] & 1 != 0);
 
         assert_eq!(living,    vec!["mushroom", "giraffe", "grapefruit"]);
