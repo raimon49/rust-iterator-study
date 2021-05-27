@@ -537,4 +537,24 @@ fn main() {
         assert_eq!(living,    vec!["mushroom", "giraffe", "grapefruit"]);
         assert_eq!(nonliving, vec!["doorknob", "noodle"]);
     }
+
+    {
+        struct I32Range {
+            start: i32,
+            end: i32
+        }
+
+        impl Iterator for I32Range {
+            type Item = i32;
+            fn next(&mut self) -> Option<i32> {
+                if self.start >= self.end {
+                    return None;
+                }
+
+                let result = Some(self.start);
+                self.start += 1;
+                result
+            }
+        }
+    }
 }
