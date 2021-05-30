@@ -595,5 +595,13 @@ fn main() {
                 }
             }
         }
+
+        impl<T> BinaryTree<T> {
+            fn iter(&self) -> TreeIter<T> {
+                let mut iter = TreeIter { unvisited: Vec::new() };
+                iter.push_left_edge(self);
+                iter
+            }
+        }
     }
 }
