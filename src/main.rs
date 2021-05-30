@@ -582,5 +582,18 @@ fn main() {
             left: BinaryTree<T>,
             right: BinaryTree<T>
         }
+
+        struct TreeIter<'a, T: 'a> {
+            unvisited: Vec<&'a TreeNode<T>>
+        }
+
+        impl <'a, T: 'a> TreeIter<'a, T> {
+            fn push_left_edge(&mut self, mut tree: &'a BinaryTree<T>) {
+                while let BinaryTree::NonEmpty(ref node) = *tree {
+                    self.unvisited.push(node);
+                    tree = &node.left;
+                }
+            }
+        }
     }
 }
