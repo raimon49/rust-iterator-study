@@ -571,4 +571,16 @@ fn main() {
         // IEEE754に準拠するとconsts::PIと完全に一致する
         assert_eq!(pi as f32, std::f32::consts::PI);
     }
+    {
+        enum BinaryTree<T> {
+            Empty,
+            NonEmpty(Box<TreeNode<T>>)
+        }
+
+        struct TreeNode<T> {
+            element: T,
+            left: BinaryTree<T>,
+            right: BinaryTree<T>
+        }
+    }
 }
