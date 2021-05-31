@@ -603,5 +603,14 @@ fn main() {
                 iter
             }
         }
+
+        impl<'a, T: 'a> IntoIterator for &'a BinaryTree<T> {
+            type Item = &'a T;
+            type IntoIter = TreeIter<'a, T>;
+        //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ `main::TreeIter<'_, T>` is not an iterator
+            fn into_iter(self) -> Self::IntoIter {
+                self.iter()
+            }
+        }
     }
 }
