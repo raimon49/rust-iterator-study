@@ -612,5 +612,21 @@ fn main() {
                 self.iter()
             }
         }
+
+        impl<'a, T: 'a> Iterator for TreeIter<'a, T> {
+    //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ missing `next` in implementation
+            type Item = &'a T;
+
+            fn next(&mut self) -> Option<'a T> {
+                let node = match self.unvisited.pop() {
+                    None => return None,
+                    Some(n) => n
+                };
+
+                self.push_left_edge(&node.right);
+
+                Some(&node.element)
+            }
+        }
     }
 }
