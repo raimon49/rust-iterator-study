@@ -607,17 +607,15 @@ fn main() {
         impl<'a, T: 'a> IntoIterator for &'a BinaryTree<T> {
             type Item = &'a T;
             type IntoIter = TreeIter<'a, T>;
-        //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ `main::TreeIter<'_, T>` is not an iterator
             fn into_iter(self) -> Self::IntoIter {
                 self.iter()
             }
         }
 
-        impl<'a, T: 'a> Iterator for TreeIter<'a, T> {
-    //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ missing `next` in implementation
+        impl<'a, T> Iterator for TreeIter<'a, T> {
             type Item = &'a T;
 
-            fn next(&mut self) -> Option<'a T> {
+            fn next(&mut self) -> Option<&'a, T> {
                 let node = match self.unvisited.pop() {
                     None => return None,
                     Some(n) => n
