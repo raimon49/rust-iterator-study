@@ -615,7 +615,7 @@ fn main() {
         impl<'a, T> Iterator for TreeIter<'a, T> {
             type Item = &'a T;
 
-            fn next(&mut self) -> Option<&'a, T> {
+            fn next(&mut self) -> Option<&'a T> {
                 let node = match self.unvisited.pop() {
                     None => return None,
                     Some(n) => n
