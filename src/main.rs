@@ -616,13 +616,16 @@ fn main() {
             type Item = &'a T;
 
             fn next(&mut self) -> Option<&'a T> {
+                // このイテレーションが生成するべきノードを見つける。無ければNoneを返してイテレーションを終了。
                 let node = match self.unvisited.pop() {
                     None => return None,
                     Some(n) => n
                 };
 
+                // このノードの次のノードは、右側にある子ノードのうち最も左のノードなので、そこまでスタックにpushする。
                 self.push_left_edge(&node.right);
 
+                // 見付けたノードへの参照を生成して返す。
                 Some(&node.element)
             }
         }
