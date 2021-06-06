@@ -629,5 +629,9 @@ fn main() {
                 Some(&node.element)
             }
         }
+
+        fn make_node<T>(left: BinaryTree<T>, element: T, right: BinaryTree<T>) -> BinaryTree<T> {
+            BinaryTree::NonEmpty(Box::new(TreeNode { left, element, right }))
+        }
     }
 }
