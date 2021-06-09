@@ -633,5 +633,10 @@ fn main() {
         fn make_node<T>(left: BinaryTree<T>, element: T, right: BinaryTree<T>) -> BinaryTree<T> {
             BinaryTree::NonEmpty(Box::new(TreeNode { left, element, right }))
         }
+
+        let subtree_l = make_node(BinaryTree::Empty, "mecha", BinaryTree::Empty);
+        let subtree_rl = make_node(BinaryTree::Empty, "droid", BinaryTree::Empty);
+        let subtree_r = make_node(subtree_rl, "robot", BinaryTree::Empty);
+        let tree = make_node(subtree_l, "laeger", subtree_r);
     }
 }
