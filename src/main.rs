@@ -641,6 +641,7 @@ fn main() {
 
         let mut v = Vec::new();
         for kind in &tree {
+            // 左にあるノードから順にsubtree_l, tree, subtree_rl, subtree_rの順にイテレートされる
             v.push(*kind);
         }
 
