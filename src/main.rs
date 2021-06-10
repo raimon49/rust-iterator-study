@@ -646,5 +646,11 @@ fn main() {
         }
 
         assert_eq!(v, ["mecha", "Jaeger", "droid", "robot"]);
+
+        // 型BinaryTreeはアダプタが利用できる
+        assert_eq!(tree.iter()
+                    .map(|name| format!("mega-{}", name))
+                    .collect::<Vec<_>>(),
+                    vec!["mega-mecha", "mega-Jaeger", "mega-droid", "mega-robot"]);
     }
 }
