@@ -637,11 +637,13 @@ fn main() {
         let subtree_l = make_node(BinaryTree::Empty, "mecha", BinaryTree::Empty);
         let subtree_rl = make_node(BinaryTree::Empty, "droid", BinaryTree::Empty);
         let subtree_r = make_node(subtree_rl, "robot", BinaryTree::Empty);
-        let tree = make_node(subtree_l, "laeger", subtree_r);
+        let tree = make_node(subtree_l, "Jaeger", subtree_r);
 
         let mut v = Vec::new();
         for kind in &tree {
             v.push(*kind);
         }
+
+        assert_eq!(v, ["mecha", "Jaeger", "droid", "robot"]);
     }
 }
